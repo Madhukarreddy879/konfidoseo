@@ -1,0 +1,135 @@
+---
+// Institutional Credibility & 4-Step Admission Roadmap
+const steps = [
+  {
+    step: "01",
+    title: "Profile & Rank Evaluation",
+    desc: "Share your 12th board PCM percentage, JEE / State EAMCET / KCET ranks, or direct admission criteria with our senior advisors."
+  },
+  {
+    step: "02",
+    title: "University & Quota Mapping",
+    desc: "We analyze cutoff trends, fee affordability, and management quota availability across top 51 universities to shortlist your best options."
+  },
+  {
+    step: "03",
+    title: "Application & Fee Verification",
+    desc: "Direct coordination with university admission directorates. We ensure zero hidden donations and official university receipts."
+  },
+  {
+    step: "04",
+    title: "Confirmed Seat Allotment",
+    desc: "Receive your official provisional admission offer letter, hostel booking assistance, and full guidance until campus reporting."
+  }
+];
+
+const pillars = [
+  {
+    title: "51+ Direct Institutional Partnerships",
+    desc: "Direct working relationships with university admission cells across Telangana, Andhra Pradesh, Karnataka, and Tamil Nadu — no unverified third-party brokers.",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+  },
+  {
+    title: "100% Free Transparent Counselling",
+    desc: "Our career guidance, rank analysis, and college shortlisting service are completely free of charge for students and parents.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  },
+  {
+    title: "Management & Spot Quota Specialists",
+    desc: "In-depth expertise in institutional quota seats, Category-B applications, and spot rounds for students seeking top branches like CSE and AI/ML.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    title: "Verified Placement & Fee Intelligence",
+    desc: "We provide audited placement statistics, median CTC figures, and comprehensive 4-year fee projections including hostel and exam charges.",
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+  }
+];
+---
+
+<section class="py-16 bg-white border-b border-slate-200" id="admission-process">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- 4-Step Roadmap -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+        Transparent Process
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+        How Konfido Secures Your Engineering Admission
+      </h2>
+      <p class="text-slate-600 text-sm sm:text-base mt-2">
+        A structured, reliable, and stress-free pathway from rank evaluation to seat allotment letter.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 relative">
+      {steps.map((item, idx) => (
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative group hover:border-blue-400 hover:bg-white hover:shadow-lg transition-all">
+          <div class="w-10 h-10 rounded-xl bg-blue-700 text-white font-black text-sm flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
+            {item.step}
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">
+            {item.title}
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Trust Pillars Grid -->
+    <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-3xl mb-10">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">
+          Why Choose Konfido
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-2 text-white">
+          Built on Complete Transparency & Student Success
+        </h2>
+        <p class="text-slate-300 text-sm mt-1">
+          Unlike general lead-brokers, Konfido operates as an authorized education advisory with direct university coordination.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+        {pillars.map((pillar) => (
+          <div class="flex gap-4 items-start">
+            <div class="w-12 h-12 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center flex-shrink-0 border border-slate-700 shadow-xs">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={pillar.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-white mb-1">
+                {pillar.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {pillar.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs text-slate-400">
+          Have questions about specific university cutoffs or fee concession?
+        </div>
+        <a 
+          href="https://wa.me/919000000000?text=Hi%20Konfido%2C%20I%20have%20questions%20regarding%20university%20quotas"
+          target="_blank"
+          rel="noopener"
+          class="btn-whatsapp text-xs py-2.5 px-4 font-bold"
+        >
+          Talk to a Senior Counsellor on WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>

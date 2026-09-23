@@ -1,0 +1,159 @@
+---
+const currentYear = new Date().getFullYear();
+
+const southStates = [
+  { name: 'Engineering Colleges in Telangana (Hyderabad)', href: '/colleges/telangana' },
+  { name: 'Engineering Colleges in Andhra Pradesh', href: '/colleges/andhra-pradesh' },
+  { name: 'Engineering Colleges in Karnataka (Bengaluru)', href: '/colleges/karnataka' },
+  { name: 'Engineering Colleges in Tamil Nadu (Chennai)', href: '/colleges/tamil-nadu' },
+  { name: 'Engineering Colleges in North & West India', href: '/colleges/north-west-india' },
+];
+
+const topUniversities = [
+  { name: 'Vellore Institute of Technology (VIT)', href: '/colleges/vit-vellore' },
+  { name: 'SRM Institute of Science & Technology', href: '/colleges/srm-university' },
+  { name: 'Ramaiah Institute of Technology (MSRIT)', href: '/colleges/ramaiah-institute-of-technology' },
+  { name: 'PES University Bengaluru', href: '/colleges/pes-university' },
+  { name: 'KL University (KLEF)', href: '/colleges/kl-university' },
+  { name: 'Vignan University Guntur', href: '/colleges/vignan-university' },
+  { name: 'Bennett University Greater Noida', href: '/colleges/bennett-university-greater-noida' },
+  { name: 'Chandigarh University & Chitkara', href: '/colleges/chandigarh-university-mohali' },
+];
+
+const branches = [
+  'B.Tech Computer Science & Engg (CSE)',
+  'B.Tech Artificial Intelligence & Machine Learning',
+  'B.Tech Data Science & Analytics',
+  'B.Tech Cyber Security',
+  'B.Tech Electronics & Communication (ECE)',
+  'B.Tech Biotechnology & Biomedical',
+];
+---
+
+<footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800 text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Footer Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
+      
+      <!-- Brand & Mission (2 cols on LG) -->
+      <div class="lg:col-span-2 space-y-4">
+        <a href="/" class="flex items-center gap-2.5 text-white text-decoration-none">
+          <div class="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-amber-400 shadow-sm">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-xl font-black tracking-tight text-white font-serif">KONFIDO</span>
+            <span class="block text-[10px] text-slate-400 font-medium tracking-normal -mt-0.5">
+              Higher Education Advisory & Admissions
+            </span>
+          </div>
+        </a>
+
+        <p class="text-slate-400 leading-relaxed max-w-sm font-normal">
+          Konfido is an authorized educational consultancy guiding students toward top engineering colleges across South India and nationally. We ensure verified fee structures, transparent management quota processes, and zero hidden costs.
+        </p>
+
+        <div class="space-y-1.5 pt-2 text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-400 font-bold">📍 Head Office:</span>
+            <span>Road No. 36, Jubilee Hills / Banjara Hills, Hyderabad, Telangana</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-amber-400 font-bold">📞 Helpline:</span>
+            <a href="tel:+919000000000" class="hover:text-white transition-colors">+91 90000 00000 / +91 91000 00000</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-amber-400 font-bold">✉️ Admissions:</span>
+            <a href="mailto:admissions@konfido.in" class="hover:text-white transition-colors">admissions@konfido.in</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- State Hubs (SEO Links) -->
+      <div>
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+          Colleges by State
+        </h4>
+        <ul class="space-y-2.5">
+          {southStates.map((state) => (
+            <li>
+              <a href={state.href} class="hover:text-white transition-colors">
+                {state.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Top Universities -->
+      <div>
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+          Top Universities
+        </h4>
+        <ul class="space-y-2.5">
+          {topUniversities.map((univ) => (
+            <li>
+              <a href={univ.href} class="hover:text-white transition-colors">
+                {univ.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Popular Specializations -->
+      <div>
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+          Top Engineering Streams
+        </h4>
+        <ul class="space-y-2.5">
+          {branches.map((b) => (
+            <li class="hover:text-white transition-colors cursor-pointer">
+              {b}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Disclaimer & Copyright -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+      <p class="max-w-3xl leading-relaxed">
+        <strong>Disclaimer:</strong> Konfido is an independent higher education advisory platform. We guide students through official entrance exams, state counselling procedures, and institutional category-B management seats with 100% transparent fee structures. All logos, trademarks, and university names belong to their respective statutory owners.
+      </p>
+
+      <div class="flex-shrink-0 text-center md:text-right space-y-1">
+        <div>&copy; {currentYear} Konfido Education Advisory. All rights reserved.</div>
+        <div class="space-x-3 text-slate-400">
+          <a href="#" class="hover:underline">Privacy Policy</a>
+          <span>•</span>
+          <a href="#" class="hover:underline">Terms of Service</a>
+          <span>•</span>
+          <a href="/sitemap.xml" class="hover:underline">Sitemap</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Action Pill for Instant Mobile Lead Capture -->
+<div class="fixed bottom-5 right-5 z-40">
+  <a
+    href="https://wa.me/919000000000?text=Hi%20Konfido%2C%20I%20need%20immediate%20admission%20guidance"
+    target="_blank"
+    rel="noopener"
+    class="flex items-center gap-2 bg-[#25d366] text-white px-4 py-3 rounded-full shadow-2xl hover:bg-[#20ba5a] hover:scale-105 transition-all text-xs font-bold border-2 border-white"
+    aria-label="Direct WhatsApp Enquiry"
+  >
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+    </svg>
+    <span class="hidden sm:inline">Ask Counsellor on WhatsApp</span>
+    <span class="sm:hidden font-bold">WhatsApp</span>
+  </a>
+</div>

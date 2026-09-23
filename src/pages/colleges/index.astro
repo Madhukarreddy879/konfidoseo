@@ -1,0 +1,273 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { collegesData } from '../../data/colleges';
+
+const title = "Top 51 Engineering Universities in South India & National (2025–26) | Konfido";
+const description = "Explore and compare all 51 partner universities for B.Tech admissions 2025 across Telangana, Andhra Pradesh, Karnataka, Tamil Nadu, and North India. Verified fee structures, cutoffs, and management quota guidance.";
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Directory Header -->
+  <section class="bg-gradient-to-b from-blue-50/70 via-white to-slate-50 py-12 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-4" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-blue-700 transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-slate-900 font-bold">University Directory</span>
+      </nav>
+
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider mb-3">
+          🎓 Official University Directory (51 Institutions)
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Explore India's Top 51 Engineering Universities
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
+          Comprehensive admission intelligence, verified tuition & hostel fees, previous year closing cutoffs, and direct management quota availability across South India and premier national campuses.
+        </p>
+      </div>
+
+      <!-- Live Search & Filter Bar -->
+      <div class="mt-8 bg-white p-3 rounded-2xl shadow-md border border-slate-200 max-w-4xl">
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+          
+          <div class="sm:col-span-6 relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+              <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="directory-search"
+              placeholder="Search by university name, city, or branch..."
+              class="w-full pl-10 pr-4 py-2.5 bg-slate-50 hover:bg-white focus:bg-white rounded-xl text-xs sm:text-sm font-medium text-slate-900 placeholder-slate-400 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+            />
+          </div>
+
+          <div class="sm:col-span-3">
+            <select
+              id="directory-state"
+              class="w-full px-3 py-2.5 bg-slate-50 hover:bg-white focus:bg-white rounded-xl text-xs sm:text-sm font-medium text-slate-700 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              aria-label="Filter universities by state"
+            >
+              <option value="all">All Locations (51)</option>
+              <option value="Telangana">Telangana (Hyderabad)</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Karnataka">Karnataka (Bengaluru)</option>
+              <option value="Tamil Nadu">Tamil Nadu (Chennai)</option>
+              <option value="North/West">North & West India</option>
+            </select>
+          </div>
+
+          <div class="sm:col-span-3">
+            <select
+              id="directory-sort"
+              class="w-full px-3 py-2.5 bg-slate-50 hover:bg-white focus:bg-white rounded-xl text-xs sm:text-sm font-medium text-slate-700 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
+              aria-label="Sort universities"
+            >
+              <option value="featured">Featured First</option>
+              <option value="nirf">Ranked by NIRF</option>
+              <option value="package">Highest Package</option>
+              <option value="name">Alphabetical (A-Z)</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Directory Grid Section -->
+  <section class="py-12 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Results Counter -->
+      <div class="flex items-center justify-between text-xs text-slate-500 mb-6 font-medium">
+        <div>
+          Showing <span id="directory-count" class="font-bold text-slate-900">{collegesData.length}</span> verified institutions
+        </div>
+        <div class="text-slate-600">
+          Need urgent quota booking? <a href="https://wa.me/919000000000" target="_blank" class="text-blue-700 font-bold hover:underline">WhatsApp Admission Desk →</a>
+        </div>
+      </div>
+
+      <!-- College Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="directory-grid">
+        {collegesData.map((college) => (
+          <article 
+            class="directory-card portal-card p-5 flex flex-col justify-between"
+            data-state={college.state}
+            data-region={college.region}
+            data-name={college.name.toLowerCase()}
+            data-city={college.city.toLowerCase()}
+            data-courses={college.popularCourses.join(' ').toLowerCase()}
+            data-nirf={college.nirfRank || 999}
+            data-featured={college.featured ? "1" : "0"}
+          >
+            <div>
+              <!-- Badges Header -->
+              <div class="flex items-start justify-between gap-2 mb-3">
+                <div class="flex flex-wrap gap-1.5">
+                  {college.nirfRank && (
+                    <span class="badge-nirf">
+                      NIRF #{college.nirfRank}
+                    </span>
+                  )}
+                  {college.naacGrade && (
+                    <span class="badge-naac">
+                      NAAC {college.naacGrade}
+                    </span>
+                  )}
+                  <span class="badge-quota">
+                    Direct Quota
+                  </span>
+                </div>
+                <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                  Est. {college.established || '2005'}
+                </span>
+              </div>
+
+              <!-- College Name -->
+              <h2 class="text-base sm:text-lg font-bold text-slate-900 hover:text-blue-700 transition-colors leading-snug">
+                <a href={`/colleges/${college.slug}`}>
+                  {college.name}
+                </a>
+              </h2>
+
+              <div class="flex items-center gap-1.5 text-xs text-slate-500 font-medium mt-1 mb-3">
+                <svg class="w-3.5 h-3.5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>{college.city}, {college.state}</span>
+                <span class="text-slate-300">•</span>
+                <span class="text-blue-700 font-semibold">{college.type}</span>
+              </div>
+
+              <!-- 3-Metrics Grid -->
+              <div class="grid grid-cols-3 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100 my-3 text-center">
+                <div>
+                  <span class="block text-[10px] uppercase font-bold text-slate-400">Avg CTC</span>
+                  <span class="text-xs font-black text-slate-900">{college.avgPackage}</span>
+                </div>
+                <div class="border-x border-slate-200">
+                  <span class="block text-[10px] uppercase font-bold text-slate-400">Highest</span>
+                  <span class="text-xs font-black text-emerald-700">{college.highestPackage}</span>
+                </div>
+                <div>
+                  <span class="block text-[10px] uppercase font-bold text-slate-400">Tuition/Yr</span>
+                  <span class="text-[11px] font-black text-blue-900 truncate block">{college.annualFee.split(' - ')[0]}</span>
+                </div>
+              </div>
+
+              <!-- Popular Branches -->
+              <div class="space-y-1 mb-4">
+                <div class="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                  Key Streams:
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  {college.popularCourses.slice(0, 3).map((course) => (
+                    <span class="text-[10px] font-medium bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">
+                      {course}
+                    </span>
+                  ))}
+                  {college.popularCourses.length > 3 && (
+                    <span class="text-[10px] font-semibold text-slate-500 px-1 py-0.5">
+                      +{college.popularCourses.length - 3} more
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Bottom CTAs -->
+            <div class="pt-3 border-t border-slate-100 flex items-center gap-2">
+              <a 
+                href={`/colleges/${college.slug}`}
+                class="flex-1 btn-navy text-xs py-2 px-2 text-center justify-center font-bold"
+              >
+                View Full Profile & Fees →
+              </a>
+              <a 
+                href={`https://wa.me/919000000000?text=Hi%20Konfido%2C%20I%20am%20interested%20in%20admission%20for%20${encodeURIComponent(college.name)}`}
+                target="_blank"
+                rel="noopener"
+                class="btn-whatsapp text-xs py-2 px-3 text-center justify-center font-bold"
+                aria-label={`Enquire on WhatsApp about ${college.name}`}
+              >
+                Enquire
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bottom CTA Strip -->
+  <section class="py-12 bg-white border-t border-slate-200 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h3 class="text-xl sm:text-2xl font-bold text-slate-900">
+        Can't find your target university?
+      </h3>
+      <p class="text-slate-600 text-sm mt-1">
+        We have tie-ups with 200+ engineering institutes across India. Connect with a counsellor to check options matching your rank and budget.
+      </p>
+      <div class="mt-4 flex justify-center gap-3">
+        <a href="https://wa.me/919000000000" target="_blank" class="btn-whatsapp text-xs py-2.5 px-5">
+          Ask via WhatsApp
+        </a>
+        <a href="/#enquiry" class="btn-gold text-xs py-2.5 px-5">
+          Book Free Counselling Session
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('directory-search') as HTMLInputElement | null;
+  const stateSelect = document.getElementById('directory-state') as HTMLSelectElement | null;
+  const cards = document.querySelectorAll('.directory-card');
+  const countDisplay = document.getElementById('directory-count');
+
+  function filterDirectory() {
+    const q = (searchInput?.value || '').trim().toLowerCase();
+    const st = stateSelect?.value || 'all';
+    let count = 0;
+
+    cards.forEach((card) => {
+      const state = (card.getAttribute('data-state') || '');
+      const region = (card.getAttribute('data-region') || '');
+      const name = (card.getAttribute('data-name') || '');
+      const city = (card.getAttribute('data-city') || '');
+      const courses = (card.getAttribute('data-courses') || '');
+
+      let matchesState = false;
+      if (st === 'all') matchesState = true;
+      else if (st === 'North/West') matchesState = region === 'North India' || region === 'West India' || region === 'Central India';
+      else matchesState = state.toLowerCase().includes(st.toLowerCase());
+
+      let matchesSearch = true;
+      if (q) matchesSearch = name.includes(q) || city.includes(q) || courses.includes(q) || state.toLowerCase().includes(q);
+
+      if (matchesState && matchesSearch) {
+        (card as HTMLElement).style.display = 'flex';
+        count++;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+
+    if (countDisplay) countDisplay.textContent = count.toString();
+  }
+
+  searchInput?.addEventListener('input', filterDirectory);
+  stateSelect?.addEventListener('change', filterDirectory);
+</script>
